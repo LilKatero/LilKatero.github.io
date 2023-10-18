@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Introduction</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .visible {
+            opacity: 1;
+        }
+
+        .intro-container {
+            height: 100vh;
+            background: url('Background.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page intro-container visible">
+        <h1>Bienvenue porte folio !</h1>
+        <p>Tout sur moi en un seul clic.</p>
+        <a href="accueil.html" class="btn btn-primary btn-lg" id="startBtn">Commencer</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('startBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Empêche le comportement par défaut du lien
+
+            // Cache la page d'introduction avec une transition fade et redirige vers la page d'accueil
+            document.querySelector('.intro-container').classList.remove('visible');
+            setTimeout(function() {
+                window.location.href = "accueil.html";
+            }, 500); // La transition dure 0.5 seconde, donc redirige après cela
+        });
+    </script>
+</body>
+
+</html>
+
